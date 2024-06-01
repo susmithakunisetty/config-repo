@@ -1,4 +1,25 @@
-# Common properties for all applications
-some:
-  common:
-    property: value
+# conf-repo/application.yml
+server:
+  port: 0
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/your-git-repo/conf-repo
+          default-label: main
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+logging:
+  level:
+    root: INFO
+    com.example: DEBUG
